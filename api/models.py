@@ -1,6 +1,6 @@
 from django.db import models
 
-class Projects(models.Model):
+class Project(models.Model):
     name_project = models.CharField(max_length=45)
     type_project = models.CharField(max_length=45)
     project_area = models.CharField(max_length=20)
@@ -14,14 +14,14 @@ class Projects(models.Model):
         return self.name_project
 
 
-class Images(models.Model):
+class Image(models.Model):
     name = models.CharField(max_length=255)
 
     def __str__(self):
         return self.name
 
 
-class Company_contacts(models.Model):
+class Company_contact(models.Model):
     email = models.CharField(max_length=45)
     number_phone = models.CharField(max_length=12)
     address = models.CharField(max_length=255)
