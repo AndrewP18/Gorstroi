@@ -1,8 +1,5 @@
 from django.contrib import admin
-from .models import Project
-from .models import Image
-from .models import Company_contact
-from .models import Feedback_form
+from .models import Project, Image, Company_contact, Feedback_form
 
 admin.site.register(Project)
 admin.site.register(Image)

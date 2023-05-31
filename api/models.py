@@ -16,6 +16,8 @@ class Project(models.Model):
 
 class Image(models.Model):
     name = models.CharField(max_length=255)
+    link = models.ImageField(upload_to='images', null=True)
+    id_project = models.ForeignKey(Project, on_delete=models.CASCADE, blank=True, null=True, related_name='images')
 
     def __str__(self):
         return self.name
