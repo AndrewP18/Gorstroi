@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Project, Image, Company_contact, Feedback_form
+from .models import Project, Image, Slider_image, Company_contact, Feedback_form
 
 
 class ProjectAdmin(admin.ModelAdmin):
@@ -13,6 +13,11 @@ class ImageAdmin(admin.ModelAdmin):
     search_fields = ["name"]
     readonly_fields = ['image_tag']
 
+
+class Slider_imageAdmin(admin.ModelAdmin):
+    list_display = ["name", "description", "link"]
+    search_fields = ["name"]
+    readonly_fields = ['slider_image']
 
 class Company_contactAdmin(admin.ModelAdmin):
     list_display = ["email", "number_phone", "address"]
@@ -31,5 +36,6 @@ class Feedback_formAdmin(admin.ModelAdmin):
 
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(Image, ImageAdmin)
+admin.site.register(Slider_image, Slider_imageAdmin)
 admin.site.register(Company_contact, Company_contactAdmin)
 admin.site.register(Feedback_form, Feedback_formAdmin)

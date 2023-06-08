@@ -1,11 +1,18 @@
 from rest_framework import serializers
-from .models import Project, Image, Company_contact, Feedback_form
+from .models import Project, Image,Slider_image, Company_contact, Feedback_form
 
 
 class ImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Image
         fields = "__all__"
+
+
+class Slider_imageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Slider_image
+        fields = "__all__"
+
 
 class ProjectSerializer(serializers.ModelSerializer):
     images = ImageSerializer(many=True)
@@ -14,10 +21,12 @@ class ProjectSerializer(serializers.ModelSerializer):
         model = Project
         fields = "__all__"
 
+
 class Company_contactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Company_contact
         fields = "__all__"
+
 
 class Feedback_formSerializer(serializers.ModelSerializer):
     class Meta:

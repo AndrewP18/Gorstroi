@@ -6,8 +6,11 @@ class Project(models.Model):
     name_project = models.CharField(max_length=45)
     type_project = models.CharField(max_length=45)
     project_area = models.CharField(max_length=20)
-    number_of_rooms = models.IntegerField()
-    number_of_floors = models.IntegerField()
+    number_of_rooms = models.PositiveIntegerField(default=0)
+    number_of_floors = models.PositiveIntegerField(default=0)
+    number_of_bedrooms = models.PositiveIntegerField(default=0)
+    number_of_bathrooms = models.PositiveIntegerField(default=0)
+    floor_height = models.CharField(max_length=10, null=True)
     description = models.CharField(max_length=255)
     time_create = models.DateTimeField(auto_now_add=True)
     time_update = models.DateTimeField(auto_now=True)
@@ -35,6 +38,23 @@ class Image(models.Model):
     class Meta:
         verbose_name = 'Изображение'
         verbose_name_plural = 'Изображения'
+
+
+class Slider_image(models.Model):
+    name = models.CharField(max_length=255)
+    description = models.CharField(max_length=50)
+    link = models.ImageField(upload_to='images/slider', null=True)
+
+    def __str__(self):
+        return self.name
+
+    def slider_image(self):
+        return mark_safe(f'<img src = "{self.link.url}" width = "300"/>')
+    slider_image.short_description = 'Изображение'
+
+    class Meta:
+        verbose_name = 'Изображение'
+        verbose_name_plural = 'Изображения для слайдера'
 
 
 class Company_contact(models.Model):
