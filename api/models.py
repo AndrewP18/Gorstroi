@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils.safestring import mark_safe
+
 
 class Project(models.Model):
     name_project = models.CharField(max_length=45)
@@ -13,6 +15,10 @@ class Project(models.Model):
     def __str__(self):
         return self.name_project
 
+    class Meta:
+        verbose_name = 'Проект'
+        verbose_name_plural = 'Проекты'
+
 
 class Image(models.Model):
     name = models.CharField(max_length=255)
@@ -22,6 +28,14 @@ class Image(models.Model):
     def __str__(self):
         return self.name
 
+    def image_tag(self):
+        return mark_safe(f'<img src = "{self.link.url}" width = "300"/>')
+    image_tag.short_description = 'Изображение'
+
+    class Meta:
+        verbose_name = 'Изображение'
+        verbose_name_plural = 'Изображения'
+
 
 class Company_contact(models.Model):
     email = models.CharField(max_length=45)
@@ -30,6 +44,11 @@ class Company_contact(models.Model):
 
     def __str__(self):
         return self.email
+
+    class Meta:
+        verbose_name = 'Контакт'
+        verbose_name_plural = 'Контакты'
+
 
 class Feedback_form(models.Model):
     name = models.CharField(max_length=45)
@@ -41,3 +60,7 @@ class Feedback_form(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = 'Вопрос'
+        verbose_name_plural = 'Вопросы'
