@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Project, Image,Slider_image, Company_contact, Application_form
+from .models import Project, Image, Slider_image, Company_contact, Application_form
 
 
 class ImageSerializer(serializers.ModelSerializer):

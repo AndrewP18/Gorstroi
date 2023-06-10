@@ -19,8 +19,8 @@ class Project(models.Model):
         return self.name_project
 
     class Meta:
-        verbose_name = 'Проект'
-        verbose_name_plural = 'Проекты'
+        verbose_name = "Проект"
+        verbose_name_plural = "Проекты"
 
 
 class Image(models.Model):
@@ -33,11 +33,11 @@ class Image(models.Model):
 
     def image_tag(self):
         return mark_safe(f'<img src = "{self.link.url}" height = "300" width = "500"/>')
-    image_tag.short_description = 'Изображение'
+    image_tag.short_description = "Изображение"
 
     class Meta:
-        verbose_name = 'Изображение'
-        verbose_name_plural = 'Изображения'
+        verbose_name = "Изображение"
+        verbose_name_plural = "Изображения"
 
 
 class Slider_image(models.Model):
@@ -50,11 +50,11 @@ class Slider_image(models.Model):
 
     def slider_image(self):
         return mark_safe(f'<img src = "{self.link.url}" width = "300"/>')
-    slider_image.short_description = 'Изображение'
+    slider_image.short_description = "Изображение"
 
     class Meta:
-        verbose_name = 'Изображение'
-        verbose_name_plural = 'Изображения для слайдера'
+        verbose_name = "Изображение"
+        verbose_name_plural = "Изображения для слайдера"
 
 
 class Company_contact(models.Model):
@@ -66,8 +66,8 @@ class Company_contact(models.Model):
         return self.number_phone
 
     class Meta:
-        verbose_name = 'Контакт'
-        verbose_name_plural = 'Контакты компании'
+        verbose_name = "Контакт"
+        verbose_name_plural = "Контакты компании"
 
 
 THEME_CHOICES = [
@@ -89,5 +89,5 @@ class Application_form(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = 'Заявку'
-        verbose_name_plural = 'Заявки'
+        verbose_name = "Заявку"
+        verbose_name_plural = "Заявки"
