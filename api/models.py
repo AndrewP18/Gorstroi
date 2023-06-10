@@ -63,24 +63,31 @@ class Company_contact(models.Model):
     address = models.CharField("Адрес", max_length=255)
 
     def __str__(self):
-        return self.email
+        return self.number_phone
 
     class Meta:
         verbose_name = 'Контакт'
-        verbose_name_plural = 'Контакты'
+        verbose_name_plural = 'Контакты компании'
 
 
-class Feedback_form(models.Model):
+THEME_CHOICES = [
+    ('Дом', 'Заказать строительство жилого дома'),
+    ('Инженерное сооружение', 'Заказать строительство инженерного сооружения'),
+    ('Отделка', 'Заказать отделку помещения'),
+    ('Вопрос', 'Другой вопрос'),
+]
+
+class Application_form(models.Model):
     name = models.CharField("Имя", max_length=45)
     surname = models.CharField("Фамилия", max_length=45)
     phone_number = models.CharField("Номер телефона", max_length=12)
     email = models.CharField("Электронная почта", max_length=45)
-    subject_of_question = models.CharField("Тема вопроса", max_length=100)
-    quesion_body = models.CharField("Вопрос", max_length=500)
+    theme = models.CharField("Тема", choices=THEME_CHOICES, default='Дом', max_length=100)
+    note = models.CharField("Комментарий", max_length=500)
 
     def __str__(self):
         return self.name
 
     class Meta:
-        verbose_name = 'Вопрос'
-        verbose_name_plural = 'Вопросы'
+        verbose_name = 'Заявку'
+        verbose_name_plural = 'Заявки'

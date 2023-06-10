@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Project, Image,Slider_image, Company_contact, Feedback_form
+from .models import Project, Image,Slider_image, Company_contact, Application_form
 
 
 class ImageSerializer(serializers.ModelSerializer):
@@ -28,7 +28,7 @@ class Company_contactSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class Feedback_formSerializer(serializers.ModelSerializer):
+class Application_formSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Feedback_form
+        model = Application_form
         fields = "__all__"

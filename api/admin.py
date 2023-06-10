@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Project, Image, Slider_image, Company_contact, Feedback_form
+from .models import Project, Image, Slider_image, Company_contact, Application_form
 
 
 class ProjectAdmin(admin.ModelAdmin):
@@ -23,8 +23,8 @@ class Company_contactAdmin(admin.ModelAdmin):
     list_display = ["email", "number_phone", "address"]
 
 
-class Feedback_formAdmin(admin.ModelAdmin):
-    list_display = ["name", "phone_number", "email"]
+class Application_formAdmin(admin.ModelAdmin):
+    list_display = ["name", "phone_number", "email", "theme"]
     search_fields = ["name", "email"]
 
     def has_add_permission(self, request):
@@ -38,4 +38,4 @@ admin.site.register(Project, ProjectAdmin)
 admin.site.register(Image, ImageAdmin)
 admin.site.register(Slider_image, Slider_imageAdmin)
 admin.site.register(Company_contact, Company_contactAdmin)
-admin.site.register(Feedback_form, Feedback_formAdmin)
+admin.site.register(Application_form, Application_formAdmin)
