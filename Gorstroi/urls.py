@@ -11,7 +11,7 @@ urlpatterns = [
     path('api/projects/<int:pk>', ProjectOne.as_view()),
     path('api/images/', Images_list.as_view()),
     path('api/contacts/', Company_contacts_list.as_view()),
-    path('api/applications/', Application_form_create.as_view())
+    path('api/applications/create', Application_form_create.as_view())
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

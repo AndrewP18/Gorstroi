@@ -32,4 +32,3 @@ class Company_contacts_list(generics.ListAPIView):
 class Application_form_create(generics.CreateAPIView):
     queryset = Application_form.objects.all()
     serializer_class = Application_formSerializer
-    permission_classes =(IsAuthenticatedOrReadOnly, )

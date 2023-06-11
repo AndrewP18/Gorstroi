@@ -27,12 +27,6 @@ class Application_formAdmin(admin.ModelAdmin):
     list_display = ["name", "phone_number", "email", "theme"]
     search_fields = ["name", "email"]
 
-    def has_add_permission(self, request):
-        return False
-
-    def has_change_permission(self, request, obj=None):
-        return False
-
 
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(Image, ImageAdmin)

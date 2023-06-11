@@ -1,5 +1,10 @@
+from django.conf import settings
 from django.db import models
+from django.template import loader
 from django.utils.safestring import mark_safe
+from django.core.mail import send_mail
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 class Project(models.Model):
@@ -91,3 +96,27 @@ class Application_form(models.Model):
     class Meta:
         verbose_name = "Заявку"
         verbose_name_plural = "Заявки"
+
+@receiver(post_save, sender=Application_form)
+def send(sender, instance, **kwargs):
+    if kwargs['created']:
+        html_messsage = loader.render_to_string(
+            'emails/email_message.html',
+            {
+                'sender_name': instance.name,
+                'sender_surname': instance.surname,
+                'phone_number': instance.phone_number,
+                'email': instance.email,
+                'theme': instance.theme,
+                'note': instance.note,
+            }
+        )
+
+        send_mail(
+            "Заявка",
+            None,
+            settings.EMAIL_HOST_USER,
+            ['shadowandgod@mail.ru'],
+            fail_silently=False,
+            html_message=html_messsage
+        )
