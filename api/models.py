@@ -30,7 +30,7 @@ class Project(models.Model):
 
 class Image(models.Model):
     name = models.CharField("Наименование",max_length=255)
-    link = models.ImageField("Полное название",upload_to='images', null=True)
+    link = models.ImageField("Полное название", upload_to='images', null=True)
     id_project = models.ForeignKey(Project, on_delete=models.CASCADE, blank=True, null=True, verbose_name='Проект', related_name='images')
 
     def __str__(self):
@@ -48,7 +48,7 @@ class Image(models.Model):
 class Slider_image(models.Model):
     name = models.CharField("Наименование", max_length=255)
     description = models.CharField("Переход на ресурс", max_length=50)
-    link = models.ImageField("Полное название", upload_to='images/slider', null=True)
+    link = models.ImageField("Полное название", upload_to='images_slider/', null=True)
 
     def __str__(self):
         return self.name
