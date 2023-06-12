@@ -103,8 +103,8 @@ def send(sender, instance, **kwargs):
         html_messsage = loader.render_to_string(
             'emails/email_message.html',
             {
-                'sender_name': instance.name,
-                'sender_surname': instance.surname,
+                'name': instance.name,
+                'surname': instance.surname,
                 'phone_number': instance.phone_number,
                 'email': instance.email,
                 'theme': instance.theme,
