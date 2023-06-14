@@ -1,12 +1,9 @@
 from django.conf import settings
 from django.core import mail
-from django.urls import reverse
 from rest_framework import status
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.test import APITestCase
 from django.test import Client
 from .models import Project, Image, Slider_image, Company_contact, Application_form
-from .serializers import ProjectSerializer, Company_contactSerializer
 
 
 class ModelsTestCase(APITestCase):
